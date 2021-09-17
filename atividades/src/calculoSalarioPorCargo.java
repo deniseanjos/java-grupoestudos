@@ -9,15 +9,19 @@ public class calculoSalarioPorCargo {
         String cargo = "";
         double percentAumento = 0.0, aumento = 0.0, salarioAtual = 0.0;
 
-        System.out.print("=== CALCULE SEU NOVO SALARIO ===\n" +
+        System.out.print("=== CALCULE O AUMENTO DE SALARIO ===\n" +
                 "1 - Serviços Gerais\t|\t2 - Vigia\t|\t3 - Recepcionista\t|\t4 - Vendedor\n" +
                 "Informe seu cargo: ");
 
-        int menu = scan.nextInt();
+        //Opção para não dar erro caso o usuário digite uma letra por engano
+        char menu = scan.next().charAt(0);
 
-        while(menu < 1 || menu > 4) {
+//        int menu = scan.nextInt();
+//        while(menu < 1 || menu > 4) {
+
+        while(menu != '1' && menu != '2' && menu != '3' && menu != '4'){
             System.out.print("Cargo inválido. Digite novamente: ");
-            menu = scan.nextInt();
+            menu = scan.next().charAt(0);
         }
 
         System.out.print("Informe seu salário: R$ ");
@@ -29,25 +33,25 @@ public class calculoSalarioPorCargo {
         }
 
         switch (menu){
-            case 1:
+            case '1':
                 cargo = "SERVIÇOS GERAIS";
                 percentAumento = 0.5;
                 aumento = salario * percentAumento;
                 salarioAtual = salario + aumento;
                 break;
-            case 2:
+            case '2':
                 cargo = "VIGIA";
                 percentAumento = 0.3;
                 aumento = salario * percentAumento;
                 salarioAtual = salario + aumento;
                 break;
-            case 3:
+            case '3':
                 cargo = "RECEPCIONISTA";
                 percentAumento = 0.25;
                 aumento = salario * percentAumento;
                 salarioAtual = salario + aumento;
                 break;
-            case 4:
+            case '4':
                 cargo = "VENDEDOR";
                 percentAumento = 0.15;
                 aumento = salario * percentAumento;
